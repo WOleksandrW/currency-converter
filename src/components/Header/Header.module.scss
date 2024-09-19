@@ -1,0 +1,25 @@
+@import "../../scss/variables.scss";
+
+.header {
+  min-height: 40px;
+  padding: 12px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background-color: $colorBackLight;
+}
+
+.logo {
+  font-size: 3rem;
+}
+
+.accent {
+  color: $colorPrimary;
+}
+
+.courses-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
