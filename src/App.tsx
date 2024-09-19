@@ -1,8 +1,16 @@
+import { useEffect } from 'react';
+import { useCurrencies } from './contexts';
 import { Header } from './components';
 
 import styles from './App.module.scss';
 
 function App() {
+  const { loadCurrencies } = useCurrencies();
+
+  useEffect(() => {
+    loadCurrencies();
+  }, [loadCurrencies]);
+
   return (
     <>
       <Header />
