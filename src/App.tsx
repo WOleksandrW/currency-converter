@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useConverter, useCurrencies } from './contexts';
-import { CurrencyBlock, Header } from './components';
+import { CurrencyBlock, Header, Loader } from './components';
 
 import styles from './App.module.scss';
 
 function App() {
-  const { currencies, loadCurrencies } = useCurrencies();
+  const { currencies, loadCurrencies, isLoading } = useCurrencies();
   const {
     currency1,
     setCurrency1,
@@ -21,7 +21,7 @@ function App() {
     loadCurrencies();
   }, [loadCurrencies]);
 
-  return (
+  return currencies ? (
     <>
       <Header />
       <main className={styles['main']}>
@@ -48,6 +48,12 @@ function App() {
         </section>
       </main>
     </>
+  ) : isLoading ? (
+    <div className={styles['loader-block']}>
+      <Loader size="large" />
+    </div>
+  ) : (
+    <h1>Error</h1>
   );
 }
 

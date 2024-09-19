@@ -28,3 +28,10 @@
   font-size: 2rem;
   text-align: center;
 }
+
+.loader-block {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
