@@ -28,14 +28,14 @@ function App() {
         <section className={styles['section-1']}>
           <h2 className={styles['title']}>Converter</h2>
           <CurrencyBlock
-            title={currencies[currency1]}
+            title={currencies ? currencies[currency1] : 'Unknown'}
             currency={currency1}
             amount={amount1}
             onChangeCurrency={setCurrency1}
             onChangeAmount={changeAmount1}
           />
           <CurrencyBlock
-            title={currencies[currency2]}
+            title={currencies ? currencies[currency2] : 'Unknown'}
             currency={currency2}
             amount={amount2}
             onChangeCurrency={setCurrency2}

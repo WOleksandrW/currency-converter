@@ -3,17 +3,17 @@ import { CurrenciesObjType } from '../types/CurrenciesTypes';
 import api from '../api';
 
 interface ICurrenciesContext {
-  currencies: CurrenciesObjType;
+  currencies: CurrenciesObjType | null;
   loadCurrencies: () => void;
 }
 
 export const CurrenciesContext = createContext<ICurrenciesContext>({
-  currencies: {},
+  currencies: null,
   loadCurrencies: () => console.log('error')
 });
 
 export const CurrenciesProvider = ({ children }: { children: ReactNode }) => {
-  const [currencies, setCurrencies] = useState<CurrenciesObjType>({});
+  const [currencies, setCurrencies] = useState<CurrenciesObjType | null>(null);
 
   const loadCurrencies = useCallback(() => {
     api.currencies

@@ -27,7 +27,8 @@ export default function CurrencySelect({ activeKey, onChange }: CurrencySelectPr
       <div className={styles['display']} onClick={() => setIsVisible((prev) => !prev)}>
         {activeKey ? (
           <>
-            <span className={styles['key']}>({activeKey})</span> {currencies[activeKey]}
+            <span className={styles['key']}>({activeKey})</span>{' '}
+            {currencies && currencies[activeKey]}
           </>
         ) : (
           'Select'
@@ -36,6 +37,7 @@ export default function CurrencySelect({ activeKey, onChange }: CurrencySelectPr
       </div>
       <ul className={styles['list']}>
         {isVisible &&
+          currencies &&
           Object.entries(currencies).map(([key, label]) => (
             <li className={styles['option']} key={key} onClick={() => onClickHandle(key)}>
               <span className={styles['key']}>({key})</span> {label}
