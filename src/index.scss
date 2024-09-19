@@ -11,9 +11,13 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+@import "./scss/variables.scss";
+
 body {
   margin: 0 auto;
   max-width: 1440px;
+  background-color: $colorBack;
+  color: $colorContent;
 }
 
 #root {
