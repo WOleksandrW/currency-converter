@@ -5,7 +5,7 @@ import { CurrencyBlock, Header, Loader } from './components';
 import styles from './App.module.scss';
 
 function App() {
-  const { currencies, loadCurrencies, isLoading } = useCurrencies();
+  const { currencies, loadCurrencies, isLoading, errorMessage } = useCurrencies();
   const {
     currency1,
     setCurrency1,
@@ -53,7 +53,12 @@ function App() {
       <Loader size="large" />
     </div>
   ) : (
-    <h1>Error</h1>
+    <div className={styles['error-block']}>
+      <h2 className={styles['error-title']}>Error</h2>
+      <p className={styles['error-text']}>
+        {errorMessage ?? 'The list of currencies is not loading'}
+      </p>
+    </div>
   );
 }
 
