@@ -1,0 +1,43 @@
+@import "../../scss/variables.scss";
+
+.currency-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 2.4rem;
+}
+
+.code {
+  text-transform: uppercase;
+}
+
+.fields {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.input {
+  all: unset;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  padding: 8px 12px;
+  border: 1px solid $colorPrimary;
+  border-radius: 8px;
+  max-width: 180px;
+  text-align: right;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
