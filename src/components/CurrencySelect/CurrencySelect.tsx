@@ -1,5 +1,6 @@
 import { RefObject, useCallback, useEffect, useMemo, useState } from 'react';
-import { useCurrencies } from '../../contexts';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 import useComponentVisible from '../../hooks/useComponentVisible';
 
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
@@ -11,7 +12,7 @@ interface CurrencySelectProps {
 }
 
 export default function CurrencySelect({ activeKey, onChange }: CurrencySelectProps) {
-  const { currencies } = useCurrencies();
+  const { currencies } = useSelector((state: RootState) => state.currenciesSlice);
   const { ref, isVisible, setIsVisible } = useComponentVisible(false);
 
   const [search, setSearch] = useState('');

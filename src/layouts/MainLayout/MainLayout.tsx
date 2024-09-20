@@ -1,16 +1,19 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../redux/store';
+import { fetchCurrencies } from '../../redux/currenciesSlice';
 import { Header, Loader } from '../../components';
-import { useCurrencies } from '../../contexts';
 import { HomePage } from '../../pages';
 
 import styles from './MainLayout.module.scss';
 
 export default function MainLayout() {
-  const { currencies, loadCurrencies, isLoading, errorMessage } = useCurrencies();
+  const { currencies, isLoading, errorMessage } = useSelector((state: RootState) => state.currenciesSlice);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    loadCurrencies();
-  }, [loadCurrencies]);
+    dispatch(fetchCurrencies());
+  }, [dispatch]);
 
   return currencies ? (
     <>

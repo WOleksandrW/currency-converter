@@ -1,11 +1,12 @@
-import { CurrenciesProvider } from './contexts';
+import { Provider } from 'react-redux';
+import { setupStore } from './redux/store';
 import { MainLayout } from './layouts';
 
 function App() {
   return (
-    <CurrenciesProvider>
+    <Provider store={setupStore()}>
       <MainLayout />
-    </CurrenciesProvider>
+    </Provider>
   );
 }
 

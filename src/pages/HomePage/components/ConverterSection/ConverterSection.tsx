@@ -1,13 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/store';
 import api from '../../../../api';
 import { CurrencyBlock, Loader } from '../../../../components';
-import { useCurrencies } from '../../../../contexts';
 import { CoursesObjType } from '../../../../types/CurrenciesTypes';
 
 import styles from './ConverterSection.module.scss';
 
 export default function ConverterSection() {
-  const { currencies } = useCurrencies();
+  const { currencies } = useSelector((state: RootState) => state.currenciesSlice);
 
   const [courses, setCourses] = useState<CoursesObjType | null>(null);
   const [currency1, setCurrency1] = useState('usd');
