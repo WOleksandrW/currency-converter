@@ -1,18 +1,30 @@
 @use 'sass:color';
+@import "../../../../scss/mixins.scss";
 
 .converter-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
+
+  @include mediaTablet {
+    gap: 20px;
+  }
 }
 
 .content {
   display: flex;
-  gap: 40px;
+  column-gap: 40px;
   align-items: center;
   padding: 20px;
   align-self: flex-start;
+
+  @include mediaTablet {
+    padding: 0;
+    align-self: center;
+    flex-direction: column;
+    row-gap: 20px;
+  }
 }
 
 .converter {

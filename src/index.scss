@@ -6,13 +6,18 @@
   box-sizing: border-box;
 }
 
+@import "./scss/variables.scss";
+@import "./scss/mixins.scss";
+@import "./styles/fonts.scss";
+
 html {
   font-size: 10px;
   font-family: "Roboto", sans-serif;
-}
 
-@import "./scss/variables.scss";
-@import "./styles/fonts.scss";
+  @include mediaTablet {
+    font-size: 9px;
+  }
+}
 
 body {
   margin: 0 auto;

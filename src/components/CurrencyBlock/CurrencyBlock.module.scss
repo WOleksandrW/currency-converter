@@ -1,15 +1,27 @@
 @import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
 
 .currency-block {
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @include mediaSmartphone {
+    gap: 20px;
+  }
 }
 
 .fields {
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @include mediaSmartphone {
+    flex-direction: column;
+    width: fit-content;
+    align-self: center;
+    gap: 12px;
+  }
 }
 
 .input {
@@ -30,6 +42,10 @@
 
   &[type=number] {
     -moz-appearance: textfield;
+  }
+
+  @include mediaSmartphone {
+    max-width: 100%;
   }
 }
 

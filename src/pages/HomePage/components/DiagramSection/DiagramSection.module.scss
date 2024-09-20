@@ -1,12 +1,23 @@
+@import "../../../../scss/mixins.scss";
+
 .diagram-section {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
+
+  @include mediaTablet {
+    gap: 20px;
+  }
 }
 
 .diagram {
   height: 320px;
   width: 320px;
+
+  @include mediaTablet {
+    width: max(50%, 200px);
+    height: max(50%, 200px);
+  }
 }
