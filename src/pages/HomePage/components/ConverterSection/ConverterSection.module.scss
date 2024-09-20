@@ -1,10 +1,30 @@
+@use 'sass:color';
+
 .converter-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .title {
   font-size: 3rem;
   text-align: center;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 20px;
+}
+
+.converter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.error {
+  font-size: 2rem;
+  max-width: 300px;
 }

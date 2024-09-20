@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import api from '../../../../api';
-import { CurrencyBlock } from '../../../../components';
+import { CurrencyBlock, Loader } from '../../../../components';
 import { useCurrencies } from '../../../../contexts';
 import { CoursesObjType } from '../../../../types/CurrenciesTypes';
 
@@ -14,6 +14,8 @@ export default function ConverterSection() {
   const [currency2, setCurrency2] = useState('uah');
   const [amount1, setAmount1] = useState(1);
   const [amount2, setAmount2] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const exchangeRate = useMemo(() => (courses ? courses[currency2] : 0), [courses, currency2]);
 
@@ -39,29 +41,40 @@ export default function ConverterSection() {
   );
 
   useEffect(() => {
+    setIsLoading(true);
     api.currencies
       .getCurrencyCourse(currency1)
       .then((res) => setCourses(res.data[currency1]))
-      .catch((err) => console.log(err));
+      .catch((err) => err instanceof Error && setErrorMessage(err.message))
+      .finally(() => setIsLoading(false));
   }, [currency1]);
 
   return (
     <section className={styles['converter-section']}>
       <h2 className={styles['title']}>Converter</h2>
-      <CurrencyBlock
-        title={currencies ? currencies[currency1] : 'Unknown'}
-        currency={currency1}
-        amount={amount1}
-        onChangeCurrency={setCurrency1}
-        onChangeAmount={changeAmount1}
-      />
-      <CurrencyBlock
-        title={currencies ? currencies[currency2] : 'Unknown'}
-        currency={currency2}
-        amount={amount2}
-        onChangeCurrency={setCurrency2}
-        onChangeAmount={changeAmount2}
-      />
+      <div className={styles['content']}>
+        <div className={styles['converter']}>
+          <CurrencyBlock
+            title={currencies ? currencies[currency1] : 'Unknown'}
+            currency={currency1}
+            amount={amount1}
+            onChangeCurrency={setCurrency1}
+            onChangeAmount={changeAmount1}
+          />
+          <CurrencyBlock
+            title={currencies ? currencies[currency2] : 'Unknown'}
+            currency={currency2}
+            amount={amount2}
+            onChangeCurrency={setCurrency2}
+            onChangeAmount={changeAmount2}
+          />
+        </div>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          errorMessage.length > 0 && <p className={styles['error']}>{errorMessage}</p>
+        )}
+      </div>
     </section>
   );
 }
