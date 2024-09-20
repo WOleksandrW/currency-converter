@@ -38,11 +38,11 @@ export default function CurrencySelect({ activeKey, onChange }: CurrencySelectPr
 
   return (
     <div className={styles['select']} ref={ref as RefObject<HTMLDivElement>}>
-      <div className={styles['display']} onClick={() => setIsVisible((prev) => !prev)}>
+      <div className={`p3 ${styles['display']}`} onClick={() => setIsVisible((prev) => !prev)}>
         {!isVisible ? (
           activeKey ? (
             <p className={styles['text']}>
-              <span className={styles['key']}>({activeKey})</span>{' '}
+              <span className="curr-code">({activeKey})</span>{' '}
               {currencies && currencies[activeKey]}
             </p>
           ) : (
@@ -65,12 +65,12 @@ export default function CurrencySelect({ activeKey, onChange }: CurrencySelectPr
         <ul className={styles['list']}>
           {displayList.length > 0 ? (
             displayList.map(([key, label]) => (
-              <li className={styles['option']} key={key} onClick={() => onClickHandle(key)}>
-                <span className={styles['key']}>({key})</span> {label}
+              <li className={`p3 ${styles['option']}`} key={key} onClick={() => onClickHandle(key)}>
+                <span className="curr-code">({key})</span> {label}
               </li>
             ))
           ) : (
-            <li className={styles['empty-message']}>List is empty</li>
+            <li className={`p3 ${styles['empty-message']}`}>List is empty</li>
           )}
         </ul>
       )}

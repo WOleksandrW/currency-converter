@@ -26,8 +26,8 @@ export default function MainLayout() {
     </div>
   ) : (
     <div className={styles['error-block']}>
-      <h2 className={styles['error-title']}>Error</h2>
-      <p className={styles['error-text']}>
+      <h2 className="h1">Error</h2>
+      <p className="p1">
         {errorMessage ?? 'The list of currencies is not loading'}
       </p>
     </div>

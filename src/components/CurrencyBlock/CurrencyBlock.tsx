@@ -19,8 +19,8 @@ export default function CurrencyBlock({
 }: CurrencyBlockProps) {
   return (
     <div className={styles['currency-block']}>
-      <h3 className={styles['title']}>
-        Currency: <span className={styles['code']}>({currency})</span> {title}
+      <h3 className="h2">
+        Currency: <span className="curr-code">({currency})</span> {title}
       </h3>
       <div className={styles['fields']}>
         <input

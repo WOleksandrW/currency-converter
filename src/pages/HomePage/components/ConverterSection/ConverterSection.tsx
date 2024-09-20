@@ -52,7 +52,7 @@ export default function ConverterSection() {
 
   return (
     <section className={styles['converter-section']}>
-      <h2 className={styles['title']}>Converter</h2>
+      <h2 className="h1">Converter</h2>
       <div className={styles['content']}>
         <div className={styles['converter']}>
           <CurrencyBlock
@@ -73,7 +73,7 @@ export default function ConverterSection() {
         {isLoading ? (
           <Loader />
         ) : (
-          errorMessage.length > 0 && <p className={styles['error']}>{errorMessage}</p>
+          errorMessage.length > 0 && <p className={`p1 ${styles['error']}`}>{errorMessage}</p>
         )}
       </div>
     </section>

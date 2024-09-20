@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <header className={styles['header']}>
-      <h2 className={styles['logo']}>
+      <h2 className="h1">
         <span className={styles['accent']}>Currency</span> Converter
       </h2>
       <div className={styles['courses-list']}>

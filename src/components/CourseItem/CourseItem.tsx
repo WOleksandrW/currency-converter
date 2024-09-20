@@ -8,8 +8,8 @@ interface CourseItemProps {
 export default function CourseItem({ title, value }: CourseItemProps) {
   return (
     <div className={styles['course']}>
-      <h6 className={styles['title']}>{title}</h6>
-      <p className={styles['value']}>{value.toFixed(2)}</p>
+      <h6 className="p2 curr-code">{title}</h6>
+      <p className="p3 tabular">{value.toFixed(2)}</p>
     </div>
   );
 }
