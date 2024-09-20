@@ -1,12 +1,10 @@
-import { ConverterProvider, CurrenciesProvider } from './contexts';
+import { CurrenciesProvider } from './contexts';
 import { MainLayout } from './layouts';
 
 function App() {
   return (
     <CurrenciesProvider>
-      <ConverterProvider>
-        <MainLayout />
-      </ConverterProvider>
+      <MainLayout />
     </CurrenciesProvider>
   );
 }
