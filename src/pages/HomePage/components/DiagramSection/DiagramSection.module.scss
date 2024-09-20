@@ -2,15 +2,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 50px;
 }
 
 .title {
   font-size: 3rem;
-  text-align: center;
 }
 
 .message {
   font-size: 2rem;
-  text-align: center;
+}
+
+.diagram {
+  height: 320px;
+  width: 320px;
 }
