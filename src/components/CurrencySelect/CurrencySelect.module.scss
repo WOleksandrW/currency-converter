@@ -7,17 +7,36 @@
 
 .display {
   font-size: 1.6rem;
-  padding: 8px 12px;
+  padding: 0 12px;
   border: 1px solid $colorPrimary;
   border-radius: 8px;
-  min-width: 120px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  cursor: pointer;
+}
+
+.search-bar {
+  all: unset;
+  cursor: text;
+  width: 100%;
+}
+
+.text,
+.search-bar {
+  padding: 8px 0;
+}
+
+.text {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .list {
+  width: 100%;
   position: absolute;
   right: 0;
   bottom: -10px;
@@ -27,13 +46,17 @@
   background-color: $colorBackLight;
   border-radius: 8px;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .option {
+  list-style: none;
   font-size: 1.6rem;
   display: flex;
   gap: 8px;
   padding: 8px 12px;
+  cursor: pointer;
 
   &:hover {
     background-color: color.scale($colorPrimary, $alpha: -95%);
@@ -43,4 +66,10 @@
 
 .key {
   text-transform: uppercase;
+}
+
+.empty-message {
+  margin: auto;
+  list-style: none;
+  font-size: 1.6rem;
 }
