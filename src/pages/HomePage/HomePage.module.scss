@@ -28,27 +28,3 @@
   font-size: 2rem;
   text-align: center;
 }
-
-.loader-block {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.error-block {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-}
-
-.error-title {
-  font-size: 3rem;
-}
-
-.error-text {
-  font-size: 2rem;
-}
